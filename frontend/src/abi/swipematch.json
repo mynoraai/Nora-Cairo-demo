@@ -1,0 +1,155 @@
+[
+  {
+    "type": "function",
+    "name": "set_profile",
+    "inputs": [
+      {
+        "name": "profile_commitment",
+        "type": "core::felt252"
+      }
+    ],
+    "outputs": [],
+    "state_mutability": "external"
+  },
+  {
+    "type": "function",
+    "name": "get_profile_commitment",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "core::starknet::contract_address::ContractAddress"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "core::felt252"
+      }
+    ],
+    "state_mutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "like_profile",
+    "inputs": [
+      {
+        "name": "target",
+        "type": "core::starknet::contract_address::ContractAddress"
+      }
+    ],
+    "outputs": [],
+    "state_mutability": "external"
+  },
+  {
+    "type": "function",
+    "name": "has_liked",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "core::starknet::contract_address::ContractAddress"
+      },
+      {
+        "name": "target",
+        "type": "core::starknet::contract_address::ContractAddress"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "core::integer::u8"
+      }
+    ],
+    "state_mutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "has_match",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "core::starknet::contract_address::ContractAddress"
+      },
+      {
+        "name": "target",
+        "type": "core::starknet::contract_address::ContractAddress"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "core::integer::u8"
+      }
+    ],
+    "state_mutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "dating_contract::SwipeMatch::ProfileSet",
+    "kind": "struct",
+    "members": [
+      {
+        "name": "user",
+        "type": "core::starknet::contract_address::ContractAddress",
+        "kind": "data"
+      },
+      {
+        "name": "profile_commitment",
+        "type": "core::felt252",
+        "kind": "data"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "dating_contract::SwipeMatch::LikeSent",
+    "kind": "struct",
+    "members": [
+      {
+        "name": "liker",
+        "type": "core::starknet::contract_address::ContractAddress",
+        "kind": "data"
+      },
+      {
+        "name": "likee",
+        "type": "core::starknet::contract_address::ContractAddress",
+        "kind": "data"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "dating_contract::SwipeMatch::MatchMade",
+    "kind": "struct",
+    "members": [
+      {
+        "name": "user_a",
+        "type": "core::starknet::contract_address::ContractAddress",
+        "kind": "data"
+      },
+      {
+        "name": "user_b",
+        "type": "core::starknet::contract_address::ContractAddress",
+        "kind": "data"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "dating_contract::SwipeMatch::Event",
+    "kind": "enum",
+    "variants": [
+      {
+        "name": "ProfileSet",
+        "type": "dating_contract::SwipeMatch::ProfileSet",
+        "kind": "nested"
+      },
+      {
+        "name": "LikeSent",
+        "type": "dating_contract::SwipeMatch::LikeSent",
+        "kind": "nested"
+      },
+      {
+        "name": "MatchMade",
+        "type": "dating_contract::SwipeMatch::MatchMade",
+        "kind": "nested"
+      }
+    ]
+  }
+]
