@@ -79,7 +79,7 @@ export const SwipeInterface: FC<SwipeInterfaceProps> = ({ onMatch }) => {
           id: `${address}-${targetAddress}`,
           address: targetAddress,
           alias: formatAddress(targetAddress),
-          avatar: '💞'
+          avatar: ''
         })
       }
     } catch (error) {
@@ -118,12 +118,12 @@ export const SwipeInterface: FC<SwipeInterfaceProps> = ({ onMatch }) => {
   return (
     <div className="swipe-interface">
       <div className="swipe-header">
-        <h2>💕 Send a Like</h2>
+        <h2>Send a Like</h2>
         <p>Paste a Starknet address to express interest.</p>
       </div>
 
       <label className="form-label">
-        <span className="label-icon">🏹</span> Target address
+        Target address
         <input
           type="text"
           className="form-input cute-input"
@@ -139,7 +139,7 @@ export const SwipeInterface: FC<SwipeInterfaceProps> = ({ onMatch }) => {
 
       <div className="button-row">
         <button className="next-btn" onClick={sendLike} disabled={!canSendLike}>
-          💘 Send Like
+          Send Like
         </button>
         <button
           className="secondary-btn"
@@ -157,7 +157,7 @@ export const SwipeInterface: FC<SwipeInterfaceProps> = ({ onMatch }) => {
             {likeState === 'unknown'
               ? 'Not checked yet'
               : likeState === 'liked'
-              ? 'You have liked this address 💖'
+              ? 'You have liked this address'
               : 'No like recorded yet'}
           </p>
         </div>
@@ -167,7 +167,7 @@ export const SwipeInterface: FC<SwipeInterfaceProps> = ({ onMatch }) => {
             {matchState === 'unknown'
               ? 'Not checked yet'
               : matchState === 'matched'
-              ? 'It’s a match! 🎉'
+              ? "It's a match!"
               : 'No match yet'}
           </p>
         </div>

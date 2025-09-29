@@ -25,18 +25,18 @@ interface StoredProfile {
 const STORAGE_KEY = 'swipematch_profile'
 
 const INTERESTS = [
-  '🎵 Music',
-  '🎬 Movies',
-  '📚 Reading',
-  '🏃‍♀️ Fitness',
-  '🍳 Cooking',
-  '✈️ Travel',
-  '🎨 Art',
-  '🎮 Gaming',
-  '🌱 Nature',
-  '📷 Photography',
-  '🍷 Wine',
-  '🐕 Pets'
+  'Music',
+  'Movies',
+  'Reading',
+  'Fitness',
+  'Cooking',
+  'Travel',
+  'Art',
+  'Gaming',
+  'Nature',
+  'Photography',
+  'Wine',
+  'Pets'
 ]
 
 function randomSalt(): string {
@@ -125,7 +125,7 @@ export const ProfileSetup: FC<ProfileSetupProps> = ({ onProfileCreated }) => {
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(record))
       }
 
-      alert('Profile saved on Starknet! 💖')
+      alert('Profile saved on Starknet!')
       onProfileCreated?.()
     } catch (error) {
       console.error('Failed to set profile', error)
@@ -159,12 +159,12 @@ export const ProfileSetup: FC<ProfileSetupProps> = ({ onProfileCreated }) => {
         {step === 1 && (
           <div className="profile-step">
             <div className="step-header">
-              <h3>💝 Tell us about yourself</h3>
+              <h3>Tell us about yourself</h3>
               <p>Share the basics so people can find you.</p>
             </div>
 
             <label className="form-label">
-              <span className="label-icon">👤</span> Name
+              Name
               <input
                 type="text"
                 className="form-input cute-input"
@@ -178,7 +178,7 @@ export const ProfileSetup: FC<ProfileSetupProps> = ({ onProfileCreated }) => {
             </label>
 
             <label className="form-label">
-              <span className="label-icon">🎂</span> Age
+              Age
               <input
                 type="number"
                 className="form-input cute-input"
@@ -197,7 +197,7 @@ export const ProfileSetup: FC<ProfileSetupProps> = ({ onProfileCreated }) => {
                 onClick={() => setStep(2)}
                 disabled={!profileData.name || !profileData.age}
               >
-                Next Step 💕
+                Next Step
               </button>
             </div>
           </div>
@@ -206,12 +206,12 @@ export const ProfileSetup: FC<ProfileSetupProps> = ({ onProfileCreated }) => {
         {step === 2 && (
           <div className="profile-step">
             <div className="step-header">
-              <h3>✨ Share your story</h3>
+              <h3>Share your story</h3>
               <p>What should your future match know about you?</p>
             </div>
 
             <label className="form-label">
-              <span className="label-icon">💭</span> Bio
+              Bio
               <textarea
                 className="form-textarea cute-input"
                 placeholder="I love hiking, zero-knowledge proofs, and weekend brunches!"
@@ -234,7 +234,7 @@ export const ProfileSetup: FC<ProfileSetupProps> = ({ onProfileCreated }) => {
                 onClick={() => setStep(3)}
                 disabled={profileData.bio.length < 20}
               >
-                Next Step 💖
+                Next Step
               </button>
             </div>
           </div>
@@ -243,7 +243,7 @@ export const ProfileSetup: FC<ProfileSetupProps> = ({ onProfileCreated }) => {
         {step === 3 && (
           <div className="profile-step">
             <div className="step-header">
-              <h3>🎯 Interests</h3>
+              <h3>Interests</h3>
               <p>Select topics that light you up (at least one).</p>
             </div>
 
@@ -271,7 +271,7 @@ export const ProfileSetup: FC<ProfileSetupProps> = ({ onProfileCreated }) => {
                 ← Back
               </button>
               <button className="submit-btn" onClick={handleSubmit} disabled={isSubmitting}>
-                {isSubmitting ? 'Saving...' : 'Save Profile 💞'}
+                {isSubmitting ? 'Saving...' : 'Save Profile'}
               </button>
             </div>
 

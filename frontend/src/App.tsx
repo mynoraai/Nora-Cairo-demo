@@ -60,11 +60,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1 className="app-title">
-          <span className="heart-icon">💕</span>
-          SwipeMatch
-          <span className="heart-icon">💕</span>
-        </h1>
+        <h1 className="app-title">SwipeMatch</h1>
         <p className="app-subtitle">Find your perfect match on Starknet</p>
       </header>
 
@@ -72,19 +68,19 @@ function App() {
         {!isConnected ? (
           <div className="welcome-section">
             <div className="welcome-content">
-              <h2>Welcome to SwipeMatch! 🎉</h2>
+              <h2>Welcome to SwipeMatch</h2>
               <p>The decentralized dating app where privacy meets love</p>
               <div className="features">
                 <div className="feature">
-                  <span className="feature-icon">🔒</span>
+                  <span className="feature-label">Security</span>
                   <span>Zero-knowledge profiles</span>
                 </div>
                 <div className="feature">
-                  <span className="feature-icon">💖</span>
+                  <span className="feature-label">Matching</span>
                   <span>Swipe to find matches</span>
                 </div>
                 <div className="feature">
-                  <span className="feature-icon">🎊</span>
+                  <span className="feature-label">Connect</span>
                   <span>Celebrate connections</span>
                 </div>
               </div>
@@ -99,7 +95,7 @@ function App() {
             
             {checkingProfile ? (
               <div className="loading-section">
-                <div className="loading-spinner">⏳</div>
+                <div className="loading-spinner"></div>
                 <p>Checking your profile...</p>
               </div>
             ) : !hasProfile ? (
@@ -112,14 +108,12 @@ function App() {
                     className={`nav-btn ${currentView === 'swipe' ? 'active' : ''}`}
                     onClick={() => setCurrentView('swipe')}
                   >
-                    <span className="nav-icon">💕</span>
                     <span className="nav-label">Discover</span>
                   </button>
                   <button 
                     className={`nav-btn ${currentView === 'matches' ? 'active' : ''}`}
                     onClick={() => setCurrentView('matches')}
                   >
-                    <span className="nav-icon">💬</span>
                     <span className="nav-label">Matches</span>
                     {matches.length > 0 && (
                       <span className="matches-badge">{matches.length}</span>
@@ -133,20 +127,19 @@ function App() {
                 ) : (
                   <div className="matches-view">
                     <div className="matches-header">
-                      <h2>💖 Your Matches</h2>
+                      <h2>Your Matches</h2>
                       <p>You have {matches.length} match{matches.length !== 1 ? 'es' : ''}!</p>
                     </div>
                     
                     {matches.length === 0 ? (
                       <div className="no-matches">
-                        <div className="no-matches-icon">💔</div>
                         <h3>No matches yet</h3>
                         <p>Keep swiping to find your perfect match!</p>
                         <button 
                           className="back-to-swipe-btn"
                           onClick={() => setCurrentView('swipe')}
                         >
-                          Start Swiping 💕
+                          Start Swiping
                         </button>
                       </div>
                     ) : (
@@ -154,7 +147,7 @@ function App() {
                         {matches.map((match) => (
                           <div key={match.id} className="match-card">
                             <div className="match-photo">
-                              <span className="match-emoji">{match.avatar ?? '💘'}</span>
+                              <div className="match-avatar"></div>
                             </div>
                             <div className="match-info">
                               <h4>{match.alias ?? match.address.slice(0, 10)}...</h4>
@@ -180,7 +173,7 @@ function App() {
                                 target="_blank"
                                 rel="noreferrer"
                               >
-                                🔎 View on Voyager
+                                View on Voyager
                               </a>
                             </div>
                           </div>
@@ -196,7 +189,7 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        <p>Built with 💖 on Starknet</p>
+        <p>Built on Starknet</p>
       </footer>
     </div>
   )

@@ -35,7 +35,7 @@ export const WalletConnection: React.FC = () => {
   return (
     <div className="wallet-connect">
       <div className="connect-header">
-        <h3>💕 Connect Your Wallet</h3>
+        <h3>Connect Your Wallet</h3>
         <p>Connect to start finding your perfect match!</p>
       </div>
       <div className="connectors">
@@ -46,7 +46,6 @@ export const WalletConnection: React.FC = () => {
             className="connector-btn"
             disabled={!connector.available()}
           >
-            <span className="connector-icon">🔗</span>
             <span>{connector.name}</span>
           </button>
         ))}
