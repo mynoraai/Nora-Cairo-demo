@@ -1,36 +1,30 @@
 {
+  "outputDirectory": "dist",
+  "buildCommand": "npm run build",
+  "framework": "vite",
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/:path*.js",
       "headers": [
         {
           "key": "Content-Type",
-          "value": "application/javascript; charset=utf-8"
+          "value": "application/javascript"
         }
       ]
     },
     {
-      "source": "/(.*).js",
+      "source": "/assets/:path*.css",
       "headers": [
         {
           "key": "Content-Type",
-          "value": "application/javascript; charset=utf-8"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).mjs",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript; charset=utf-8"
+          "value": "text/css"
         }
       ]
     }
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!assets/).*)",
       "destination": "/index.html"
     }
   ]
