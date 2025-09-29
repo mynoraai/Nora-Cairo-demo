@@ -3,12 +3,23 @@
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .app {
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  width: 100%;
+  max-width: 100vw;
   background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #f8b500 100%);
   font-family: 'Arial', sans-serif;
   color: white;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header */
@@ -1042,9 +1053,98 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Mobile Devices (Portrait) */
+@media (max-width: 480px) {
+  .app-header {
+    padding: 1rem 0.5rem;
+  }
+  
   .app-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .app-subtitle {
+    font-size: 1rem;
+  }
+  
+  .app-main {
+    padding: 0.5rem;
+    min-height: calc(100vh - 150px);
+    min-height: calc(100dvh - 150px);
+  }
+  
+  .welcome-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .welcome-content p {
+    font-size: 1rem;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .feature {
+    padding: 1rem;
+  }
+  
+  .wallet-connect {
+    padding: 1.5rem;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .profile-setup {
+    padding: 1rem;
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  .interests-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .interest-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .step-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .back-btn, .next-btn, .submit-btn {
+    min-width: 100%;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .swipe-interface {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+  
+  .card-stack {
+    height: 500px;
+  }
+  
+  .status-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-row {
+    flex-direction: column;
+  }
+}
+
+/* Mobile Devices (Landscape) and Small Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .app-title {
+    font-size: 2.2rem;
   }
   
   .welcome-content h2 {
@@ -1052,13 +1152,14 @@
   }
   
   .features {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
   
   .wallet-connected {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+    max-width: 300px;
   }
   
   .app-main {
@@ -1067,6 +1168,7 @@
   
   .profile-setup {
     padding: 1.5rem;
+    max-width: 500px;
   }
   
   .interests-grid {
@@ -1074,13 +1176,269 @@
   }
   
   .step-actions {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
   }
   
   .preview-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+  
+  .card-stack {
+    height: 550px;
+  }
+}
+
+/* Tablets and Small Desktops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app-title {
+    font-size: 2.5rem;
+  }
+  
+  .app-main {
+    padding: 1.5rem;
+  }
+  
+  .features {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .profile-setup {
+    max-width: 600px;
+  }
+  
+  .interests-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+  
+  .card-stack {
+    height: 600px;
+  }
+}
+
+/* Large Desktops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .app-main {
+    padding: 2rem 1rem;
+  }
+  
+  .welcome-section {
+    max-width: 700px;
+  }
+  
+  .profile-setup {
+    max-width: 650px;
+  }
+}
+
+/* Ultra-wide Screens */
+@media (min-width: 1441px) {
+  .app-main {
+    padding: 2rem;
+  }
+  
+  .welcome-section {
+    max-width: 800px;
+  }
+  
+  .profile-setup {
+    max-width: 700px;
+  }
+  
+  .app-content {
+    max-width: 900px;
+  }
+}
+
+/* Aspect Ratio Specific Adjustments */
+
+/* Wide screens (16:9, 21:9) */
+@media (min-aspect-ratio: 16/9) {
+  .app-main {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .app-header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .app-footer {
+    padding: 1.5rem;
+  }
+}
+
+/* Narrow screens (4:3, mobile portrait) */
+@media (max-aspect-ratio: 4/3) {
+  .app-main {
+    min-height: auto;
+    padding: 1rem 0.5rem;
+  }
+  
+  .app-header {
+    padding: 1rem 0.5rem;
+  }
+  
+  .welcome-content {
+    margin-bottom: 2rem;
+  }
+  
+  .features {
+    margin: 1rem 0;
+  }
+  
+  .card-stack {
+    height: 450px;
+  }
+}
+
+/* Very tall screens (like mobile in portrait) */
+@media (max-aspect-ratio: 9/16) {
+  .app {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  
+  .app-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0.5rem;
+  }
+  
+  .profile-setup {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* Landscape mobile specific */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .app-title {
+    font-size: 1.5rem;
+  }
+  
+  .app-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .app-main {
+    padding: 0.5rem 1rem;
+    min-height: calc(100vh - 100px);
+  }
+  
+  .welcome-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .feature {
+    padding: 1rem;
+  }
+  
+  .wallet-connect {
+    padding: 1rem;
+  }
+  
+  .profile-setup {
+    padding: 1rem;
+  }
+  
+  .card-stack {
+    height: 300px;
+  }
+  
+  .app-footer {
+    padding: 0.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .app {
+    background: white;
+    color: black;
+  }
+  
+  .app-header,
+  .app-footer {
+    background: none;
+    backdrop-filter: none;
+  }
+}
+
+/* High DPI / Retina displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .app-title {
+    text-rendering: optimizeLegibility;
+  }
+  
+  .feature-icon,
+  .profile-emoji {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .heart-icon {
+    animation: none;
+  }
+  
+  .status-dot {
+    animation: none;
+  }
+  
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* Dark mode support (if system prefers dark) */
+@media (prefers-color-scheme: dark) {
+  .profile-card {
+    background: rgba(30, 30, 30, 0.95);
+  }
+  
+  .card-content {
+    color: #e0e0e0;
+  }
+  
+  .profile-bio p {
+    color: #c0c0c0;
+  }
+  
+  .interests-label {
+    color: #e0e0e0;
+  }
+}
+
+/* Container queries for future-proofing */
+@container (max-width: 400px) {
+  .profile-setup {
+    padding: 1rem;
+  }
+  
+  .interests-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   }
 }
 
